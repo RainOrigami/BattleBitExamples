@@ -23,5 +23,5 @@ public class ExampleModuleIntegration : BattleBitModule
 
 public class ExampleConfiguration : ModuleConfiguration
 {
-    public string Text { get; set; } = "Test ";
+    public string Text { get; set; } = "Test";
 }

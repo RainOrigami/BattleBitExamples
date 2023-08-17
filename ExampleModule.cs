@@ -11,7 +11,7 @@ public class ExampleModule : BattleBitModule
     }
 
     [ModuleReference]
-    private BattleBitModule ExampleModuleIntegration { get; set; }
+    public BattleBitModule ExampleModuleIntegration { get; set; }
 
     public override Task OnConnected()
     {

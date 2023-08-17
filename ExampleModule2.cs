@@ -22,11 +22,11 @@ namespace BattleBitExamples
 
         public override Task OnConnected()
         {
-            Console.WriteLine($"{Configuration.Text}from ExampleModule2");
+            Console.WriteLine($"{Configuration.Text} from ExampleModule2");
             bool result = this.ExampleModuleIntegration.Test("from ExampleModule2");
             Console.WriteLine($"ExampleModuleIntegration returned {result}");
 
-            Configuration.Text = "Test2 ";
+            Configuration.Text = "Test2";
             Configuration.Save();
 
             return Task.CompletedTask;
@@ -36,5 +36,5 @@ namespace BattleBitExamples
 
 public class Example2Configuration : ModuleConfiguration
 {
-    public string Text { get; set; } = "Test ";
+    public string Text { get; set; } = "Test";
 }
