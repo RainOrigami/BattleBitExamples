@@ -4,24 +4,24 @@ using BBRAPIModules;
 
 namespace BattleBitExamples;
 
-[RequireModule(typeof(ExampleModuleIntegration))]
 public class ExampleModule : BattleBitModule
 {
     public ExampleModule(RunnerServer server) : base(server)
     {
     }
 
-    private ExampleModuleIntegration exampleModuleIntegration;
-
-    public override void OnModulesLoaded()
-    {
-        this.exampleModuleIntegration = this.Server.GetModule<ExampleModuleIntegration>()!;
-    }
+    [ModuleReference]
+    private BattleBitModule ExampleModuleIntegration { get; set; }
 
     public override Task OnConnected()
     {
-        Console.WriteLine("Hello");
-        this.exampleModuleIntegration.Test();
+        Console.WriteLine("Hello from ExampleModule");
+        if (this.ExampleModuleIntegration is not null)
+        {
+            bool result = this.ExampleModuleIntegration.Call<bool>("Test", "from ExampleModule");
+            Console.WriteLine($"ExampleModuleIntegration returned {result}");
+        }
+
         return Task.CompletedTask;
     }
 }
