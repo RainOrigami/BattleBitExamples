@@ -16,10 +16,6 @@ namespace BattleBitExamples
         // Global configuration
         public static Example2Configuration Configuration { get; set; }
 
-        public ExampleModule2(RunnerServer server) : base(server)
-        {
-        }
-
         public override Task OnConnected()
         {
             Console.WriteLine($"{Configuration.Text} from ExampleModule2");

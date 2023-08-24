@@ -9,10 +9,6 @@ public class ExampleModuleIntegration : BattleBitModule
     // Per-server configuration
     public ExampleConfiguration ExampleModuleConfig { get; set; }
 
-    public ExampleModuleIntegration(RunnerServer server) : base(server)
-    {
-    }
-
     public bool Test(string text)
     {
         Console.WriteLine($"{this.ExampleModuleConfig.Text} {text}");
